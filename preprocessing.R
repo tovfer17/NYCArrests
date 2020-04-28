@@ -1,4 +1,5 @@
 #Set working directory
+setwd('/Users/fer/Documents/RStudioFiles')
 #setwd('/Users/arpit/Documents/Data Mining Project')
 
 #Read and call arrest data
