@@ -1,6 +1,6 @@
 #Set working directory
-setwd('/Users/fer/Documents/RStudioFiles')
-#setwd('/Users/arpit/Documents/Data Mining Project')
+#setwd('/Users/fer/Documents/RStudioFiles')
+setwd('/Users/arpit/Documents/Data Mining Project')
 
 #Read and call arrest data
 arrestData <- read.csv("NYPD_Arrest_Data__Year_to_Date_.csv",header=TRUE)
@@ -18,4 +18,17 @@ arrestColumns <- arrestData[c(2,6,9,17,18)]
 #Print arrestColumns
 View (arrestColumns)
 
-#Covert Date column
+#Convert Arrest_Date column to date formate using as.Date function
+arrestColumns $ARREST_DATE <-as.Date(arrestColumns $ARREST_DATE,"%m/%d/%Y")
+
+#Create new column called month and changes the format to just have the month using format funciton
+arrestColumns$Month <- format(arrestColumns$ARREST_DATE,format = "%m")
+
+#Shows the arrestColumn (With the changes above)
+View(arrestColumns)
+
+#Converting month values from characters to numeric
+arrestColumns$Month <- as.numeric(as.character(arrestColumns$Month))
+
+#Create a new csv file with view processing steps
+write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
