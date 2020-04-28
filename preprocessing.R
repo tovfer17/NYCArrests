@@ -1,5 +1,5 @@
 #Set working directory
-setwd('/Users/arpit/Documents/Data Mining Project')
+#setwd('/Users/arpit/Documents/Data Mining Project')
 
 #Read and call arrest data
 arrestData <- read.csv("NYPD_Arrest_Data__Year_to_Date_.csv",header=TRUE)
