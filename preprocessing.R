@@ -1,6 +1,7 @@
 #Set working directory
 #setwd('/Users/fer/Documents/RStudioFiles')
-setwd('/Users/arpit/Documents/Data Mining Project')
+#setwd('/Users/arpit/Documents/Data Mining Project')
+setwd('/Users/nehabala/Desktop/Data Mining Project')
 
 #Read and call arrest data
 arrestData <- read.csv("NYPD_Arrest_Data__Year_to_Date_.csv",header=TRUE)
@@ -11,15 +12,13 @@ View(arrestData)
 #2=Arrest_Date
 #6=Ofns_Desc
 #9=Arrest_Boro
-#17=Latitude
-#18=Longitude
-#arrestColumns <- arrestData[c(ARREST_DATE,OFNS_DESC,ARREST_BORO,Latitude,Longitude)]
-arrestColumns <- arrestData[c(2,6,9,17,18)]
+arrestColumns <- arrestData[c(2,6,9)]
 #Print arrestColumns
 View (arrestColumns)
 
 #Convert Arrest_Date column to date formate using as.Date function
 arrestColumns $ARREST_DATE <-as.Date(arrestColumns $ARREST_DATE,"%m/%d/%Y")
+
 
 #Create new column called month and changes the format to just have the month using format funciton
 arrestColumns$Month <- format(arrestColumns$ARREST_DATE,format = "%m")
@@ -31,6 +30,7 @@ View(arrestColumns)
 arrestColumns$Month <- as.numeric(as.character(arrestColumns$Month))
 
 #Create a new csv file with view processing steps
+<<<<<<< HEAD
 write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
 
 #Ofnc_Dec, Boro and Month
@@ -50,3 +50,6 @@ View(ofns_boro)
 
 
 
+=======
+write.csv(arrestColumns, paste("preprocessing.csv"), row.names = F)
+>>>>>>> 17385551490a1d9a707ceb00b4c83dad9934a083
