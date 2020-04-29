@@ -30,7 +30,7 @@ View(arrestColumns)
 arrestColumns$Month <- as.numeric(as.character(arrestColumns$Month))
 
 #Create a new csv file with view processing steps
-<<<<<<< HEAD
+
 write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
 
 #Ofnc_Dec, Boro and Month
@@ -50,6 +50,4 @@ View(ofns_boro)
 
 
 
-=======
-write.csv(arrestColumns, paste("preprocessing.csv"), row.names = F)
->>>>>>> 17385551490a1d9a707ceb00b4c83dad9934a083
+
