@@ -32,3 +32,21 @@ arrestColumns$Month <- as.numeric(as.character(arrestColumns$Month))
 
 #Create a new csv file with view processing steps
 write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
+
+#Ofnc_Dec, Boro and Month
+ofns_boro_month <- arrestColumns[c(2,3,6)]
+write.csv(ofns_boro_month, paste("ofns_boro_month.csv"), row.names = F)
+View(ofns_boro_month)
+
+#Month and Ofnc_Dec
+ofns_month <- arrestColumns[c(2,6)]
+write.csv(ofns_month, paste("ofns_month.csv"), row.names = F)
+View(ofns_month)
+
+#Ofnc_dec and Boro
+ofns_boro <- arrestColumns[c(2,3)]
+write.csv(ofns_boro, paste("ofns_boro.csv"), row.names = F)
+View(ofns_boro)
+
+
+
