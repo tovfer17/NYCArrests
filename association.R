@@ -37,6 +37,5 @@ inspect(head(rules, 60))
 
 #Plotting the apriori algorithm results
 plot(rules)
-
 plot(rules,method="Graph")
-plot(rules, method = "two-key plot")         
+plot(rules, method = "two-key plot")

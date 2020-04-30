@@ -32,6 +32,7 @@ View(arrestColumns)
 arrestColumns$Month <- (as.character(arrestColumns$Month))
 
 #Create a new csv file with view processing steps
+
 #write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
 
 #Ofnc_Dec, Boro, Longitude, Latitude and Month
