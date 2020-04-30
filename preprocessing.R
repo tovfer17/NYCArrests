@@ -12,7 +12,7 @@ View(arrestData)
 #2=Arrest_Date
 #4=Pd_Desc
 #9=Arrest_Boro
-#12=Age_Group
+#12=Age_Group      
 #13=Perp_Sex
 #14=Perp_Race
 arrestColumns <- arrestData[c(2,4,9,12,13,14)]
