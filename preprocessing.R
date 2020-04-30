@@ -7,18 +7,20 @@ setwd('/Users/nehabala/Desktop/Data Mining Project')
 arrestData <- read.csv("NYPD_Arrest_Data__Year_to_Date_.csv",header=TRUE)
 arrestData
 View(arrestData)
- 
+
 #Select columns
 #2=Arrest_Date
-#6=Ofns_Desc
+#4=Pd_Desc
 #9=Arrest_Boro
-arrestColumns <- arrestData[c(2,6,9)]
+#12=Age_Group
+#13=Perp_Sex
+#14=Perp_Race
+arrestColumns <- arrestData[c(2,4,9,12,13,14)]
 #Print arrestColumns
 View (arrestColumns)
 
 #Convert Arrest_Date column to date formate using as.Date function
 arrestColumns $ARREST_DATE <-as.Date(arrestColumns $ARREST_DATE,"%m/%d/%Y")
-
 
 #Create new column called month and changes the format to just have the month using format funciton
 arrestColumns$Month <- format(arrestColumns$ARREST_DATE,format = "%m")
@@ -27,7 +29,12 @@ arrestColumns$Month <- format(arrestColumns$ARREST_DATE,format = "%m")
 View(arrestColumns)
 
 #Converting month values from characters to numeric
-arrestColumns$Month <- as.numeric(as.character(arrestColumns$Month))
+arrestColumns$Month <- (as.character(arrestColumns$Month))
 
 #Create a new csv file with view processing steps
-write.csv(arrestColumns, paste("preprocessing.csv"), row.names = F)
+#write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
+
+#Ofnc_Dec, Boro, Longitude, Latitude and Month
+offenses <- arrestColumns[c(2,3,4,5,6,7)]
+write.csv(offenses, paste("preprocessed.csv"), row.names = F)
+View(offenses)
