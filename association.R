@@ -26,16 +26,46 @@ str(dataset1)
 
 #Run the apriori algorithm
 ?apriori
-rules <- apriori(dataset1, parameter = list(support = 0.001, confidence = 0.9, target = "rules"))
 
+#Display 
+options(max.print = .Machine$integer.max)
+
+#Run the apriori algorithm for first analysis
+analysis1 <- apriori(dataset1, parameter = list(support = 0.01, confidence = 0.4, target = "rules"))
 #Get the performance summary and number of rules
-summary(rules)
-
+summary(analysis1)
 #Inspect the rules produced by the algorithm
-#Entering the number of rules you would like to view or analyze
-inspect(head(rules, 60))
+inspect(head(rules, 721))
+#Write out the first analysis file
+write(rules, file = "Analysis1.csv")
 
+#Run the apriori algorithm for second analysis
+analysis2 <- apriori(dataset1, parameter = list(support = 0.001, confidence = 0.3, target = "rules"))
+#Get the performance summary and number of rules
+summary(analysis2)
+#Inspect the rules produced by the algorithm
+inspect(head(rules, 8833))
+#Write out the second analysis file
+write(rules, file = "Analysis2.csv")
+
+#Run the apriori algorithm for third analysis
+analysis3 <- apriori(dataset1, parameter = list(support = 0.002, confidence = 0.5, target = "rules"))
+#Get the performance summary and number of rules
+summary(analysis3)
+#Inspect the rules produced by the algorithm
+inspect(head(rules, 3082))
+#Write out the third analysis file
+write(rules, file = "Analysis3.csv")
+
+
+######## ADD TO NEW FILE ########
 #Plotting the apriori algorithm results
 plot(rules)
 plot(rules,method="Graph")
 plot(rules, method = "two-key plot")
+
+
+
+
+
+
