@@ -5,7 +5,6 @@ setwd('/Users/nehabala/Desktop/Data Mining Project')
 
 #Read and call arrest data
 arrestData <- read.csv("NYPD_Arrest_Data__Year_to_Date_.csv",header=TRUE)
-arrestData
 View(arrestData)
 
 #Select columns
@@ -17,7 +16,7 @@ View(arrestData)
 #14=Perp_Race
 arrestColumns <- arrestData[c(2,4,9,12,13,14)]
 #Print arrestColumns
-View (arrestColumns)
+View(arrestColumns)
 
 #Convert Arrest_Date column to date formate using as.Date function
 arrestColumns $ARREST_DATE <-as.Date(arrestColumns $ARREST_DATE,"%m/%d/%Y")
@@ -31,11 +30,21 @@ View(arrestColumns)
 #Converting month values from characters to numeric
 arrestColumns$Month <- (as.character(arrestColumns$Month))
 
-#Create a new csv file with view processing steps
+#Create a new csv file with the clean data
+newDataSet <- arrestColumns[c(2,3,4,5,6,7)]
+write.csv(newDataSet, paste("preprocessed.csv"), row.names = F)
+View(newDataSet)
 
-#write.csv(arrestColumns, paste("arrestDataNew.csv"), row.names = F)
+#Create a variable to duplicate the data
+dataset1 <- newDataSet
+str(dataset1)
 
-#Ofnc_Dec, Boro, Longitude, Latitude and Month
-offenses <- arrestColumns[c(2,3,4,5,6,7)]
-write.csv(offenses, paste("preprocessed.csv"), row.names = F)
-View(offenses)
+#Preprocess from Char to Factor
+dataset1$PD_DESC <- as.factor(dataset1$PD_DESC)
+dataset1$ARREST_BORO <- as.factor(dataset1$ARREST_BORO)
+dataset1$AGE_GROUP <- as.factor(dataset1$AGE_GROUP)
+dataset1$PERP_SEX <- as.factor(dataset1$PERP_SEX)
+dataset1$PERP_RACE <- as.factor(dataset1$PERP_RACE)
+dataset1$Month <- as.factor(dataset1$Month)
+
+str(dataset1)
