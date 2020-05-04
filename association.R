@@ -1,3 +1,4 @@
+#--------------------------------- Install Packages & Load Libraries ----------------------------------#
 #Install the packages needed for association rule mining
 install.packages("arules")
 install.packages("arulesViz")
@@ -6,38 +7,68 @@ install.packages("arulesViz")
 library(arules)
 library(arulesViz)
 
-#Run the apriori algorithm
+#---------------------------------- Apriori Algorithm for Analysis1 -----------------------------------#
 ?apriori
 
-#Display 
+#Display all outputs
 options(max.print = .Machine$integer.max)
 
 #Run the apriori algorithm for first analysis
-analysis1 <- apriori(dataset1, parameter = list(support = 0.01, confidence = 0.4))
-#Get the performance summary and number of rules
-summary(analysis1)
+ruleSet1 <- apriori(preprocessed, parameter = list(support = 0.01, confidence = 0.4))
+#Get the performance summary and number of rules (We originally have 712 Rules)
+summary(ruleSet1)
+
 #Remove Redundant Rules
-removeRedundant <- analysis1[!is.redundant(analysis1)]
-summary(removeRedundant)
-#Inspect the rules produced by the algorithm
-inspect(head(removeRedundant, 235))
+analysis1 <- ruleSet1[!is.redundant(ruleSet1)]
+#Get the performance summary and number non redundant rules (We now have 235 Rules)
+summary(analysis1)
 
-################ IGNORE FOR NOW #################### 
+#Inspect the rules produced by the algorithm and 235 are the number of non redundant rules
+inspect(head(analysis1, 235))
 
-#Run the apriori algorithm for second analysis
-analysis2 <- apriori(dataset1, parameter = list(support = 0.001, confidence = 0.3, target = "rules"))
-#Get the performance summary and number of rules
+#Write the rules of analysis into a csv file
+write(analysis1, file = "Analysis1.csv")
+
+#---------------------------------- Apriori Algorithm for Analysis2 -----------------------------------#
+?apriori
+
+#Display all outputs
+options(max.print = .Machine$integer.max)
+
+#Run the apriori algorithm for first analysis
+ruleSet2 <- apriori(preprocessed, parameter = list(support = 0.001, confidence = 0.3, target = "rules"))
+#Get the performance summary and number of rules (We originally have 8833 Rules)
+summary(ruleSet2)
+
+#Remove Redundant Rules
+analysis2 <- ruleSet2[!is.redundant(ruleSet2)]
+#Get the performance summary and number non redundant rules (We now have 2824 Rules)
 summary(analysis2)
-#Inspect the rules produced by the algorithm
-inspect(head(analysis2, 8833))
-#Write out the second analysis file
+
+#Inspect the rules produced by the algorithm and 2824 are the number of non redundant rules
+inspect(head(analysis2, 2824))
+
+#Write the rules of analysis into a csv file
 write(analysis2, file = "Analysis2.csv")
 
-#Run the apriori algorithm for third analysis
-analysis3 <- apriori(dataset1, parameter = list(support = 0.002, confidence = 0.5, target = "rules"))
-#Get the performance summary and number of rules
+#---------------------------------- Apriori Algorithm for Analysis3 -----------------------------------#
+?apriori
+
+#Display all outputs
+options(max.print = .Machine$integer.max)
+
+#Run the apriori algorithm for first analysis
+ruleSet3 <- apriori(preprocessed, parameter = list(support = 0.002, confidence = 0.5, target = "rules"))
+#Get the performance summary and number of rules (We originally have 3082 Rules)
+summary(ruleSet3)
+
+#Remove Redundant Rules
+analysis3 <- ruleSet3[!is.redundant(ruleSet3)]
+#Get the performance summary and number non redundant rules (We now have 1023 Rules)
 summary(analysis3)
-#Inspect the rules produced by the algorithm
-inspect(head(analysis3, 3082))
-#Write out the third analysis file
+
+#Inspect the rules produced by the algorithm and 1023 are the number of non redundant rules
+inspect(head(analysis3, 1023))
+
+#Write the rules of analysis into a csv file
 write(analysis3, file = "Analysis3.csv")
