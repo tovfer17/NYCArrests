@@ -3,7 +3,7 @@
 #setwd('/Users/arpit/Documents/Data Mining Project')
 setwd('/Users/nehabala/Desktop/Data Mining Project')
 
-#------------------------------- Read Original Dataset & Clean the Data --------------------------------#
+#------------------------------- Read Original Dataset & Select Columns --------------------------------#
 #Read and call arrest data
 arrestData <- read.csv("NYPD_Arrest_Data__Year_to_Date_.csv",header=TRUE)
 View(arrestData)
@@ -15,7 +15,9 @@ View(arrestData)
 #12=Age_Group      
 #13=Perp_Sex
 #14=Perp_Race
-arrestColumns <- arrestData[c(2,4,9,12,13,14)]
+#17=Latitude
+#18=Longitude
+arrestColumns <- arrestData[c(2,4,9,12,13,14,17,18)]
 #Print arrestColumns
 View(arrestColumns)
 
@@ -27,9 +29,19 @@ arrestColumns$Month <- format(arrestColumns$ARREST_DATE,format = "%m")
 View(arrestColumns)
 
 #Create a new csv file with the clean data
-newDataSet <- arrestColumns[c(2,3,4,5,6,7)]
+newDataSet <- arrestColumns[c(2,3,4,5,6,7,8,9)]
 write.csv(newDataSet, paste("preprocessed.csv"), row.names = F)
 View(newDataSet)
+
+#------------------------------- Spliting the Data Based on the Columns --------------------------------#
+splitData = split(newDataSet, newDataSet$ARREST_BORO)
+View (splitData)
+
+for(i in 1:length(splitData))
+{
+  filename <- paste0(i, ".csv")
+  write.csv(splitData[[i]], filename)
+}
 
 #------------------------------- Preprocessing by Converting Datatypes --------------------------------#
 #Create a variable to duplicate the data for preprocessing
