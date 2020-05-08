@@ -15,43 +15,39 @@ itemFrequencyPlot(items(ruleSet2),topN=29,type="absolute",col=brewer.pal(8,'Past
 itemFrequencyPlot(items(ruleSet3),topN=29,type="absolute",col=brewer.pal(8,'Pastel2'), main="Absolute Item Frequency Plot")
 
 
-#--------------------------------- Other Graphs for Association Rules ---------------------------------#
+#---------------------------------  Graphs for Association Rules ruleset1 ---------------------------------#
+#filter just 10 rules
+top10subrules1 <- head(ruleSet1, n = 10, by = "confidence")
 #Plotting the apriori algorithm results
-plot(ruleSet1, interactive = TRUE)
-plot(ruleSet1, method = "two-key plot", interactive = TRUE)
-head(quality(ruleSet1))
+plot(top10subrules1, interactive = TRUE)
+plot(top10subrules1, method = "two-key plot", interactive = TRUE)
 
-#New Graph
-top10subrules <- head(ruleSet1, n = 10, by = "confidence")
+#graphvisual
 plot (top10subrules, method = "graph", engine = "htmlwidget")
 
-plot(top10subrules, interactive = TRUE)
+
+
+#---------------------------------  Graphs for Association Rules ruleset2 ---------------------------------#
+#filter just 10 rules
+top10subrules2 <- head(ruleSet2, n = 10, by = "confidence")
+#Plotting the apriori algorithm results
+plot(top10subrules2, interactive = TRUE)
+plot(top10subrules2, method = "two-key plot", interactive = TRUE)
+
+#graphvisual
+plot (top10subrules2, method = "graph", engine = "htmlwidget")
+
+
+#---------------------------------  Graphs for Association Rules ruleset3 ---------------------------------#
+#filter just 10 rules
+top10subrules3 <- head(ruleSet3, n = 10, by = "confidence")
+#Plotting the apriori algorithm results
+plot(top10subrules3, interactive = TRUE)
+plot(top10subrules3, method = "two-key plot", interactive = TRUE)
+
+#graphvisual
+plot (top10subrules3, method = "graph", engine = "htmlwidget")
 
 
 
-
-
-
-
-#Matrix Visuals        
-subrules <- ruleSet1[quality(ruleSet1)$confidence > 0.4]
-subrules
-plot(subrules, method = "matrix", measure = "confidence", interactive = TRUE)
-
-
-
-#Grouped Visuals
-subrules2 <- head(ruleSet1, n = 10, by = "confidence")
-subrules2
-plot(subrules2, method = "grouped", interactive = TRUE)
-
-
-
-install.packages("ggmap")
-library(ggmap)
-
-?register_google
-
-NYCMap <- get_map("Bronx", zoom = 10)
-ggmap(NYCMap) + geom_point(aes(x = Longitude[], y = Latitude[], colour = as.factor(cluster1$centers)),data = file1) +
-  ggtitle("Bronx using KMean")
+#---------------------------------  visualization for each q---------------------------------#
