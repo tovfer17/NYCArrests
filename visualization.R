@@ -26,7 +26,7 @@ plot (top10subrules1, method = "graph", engine = "htmlwidget")
 
 #---------------------------------  Graphs for Association Rules ruleset2 ---------------------------------#
 #filter just 10 rules to use for all plots 
-top10subrules2 <- head(ruleSet2, n = 20, by = "confidence")
+top10subrules2 <- head(ruleSet2, n = 10, by = "confidence")
 #Plotting the apriori algorithm results with interactive scatter plot 
 plotly_arules(top10subrules2)
 #graphvisual
