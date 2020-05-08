@@ -52,7 +52,7 @@ summary(ruleSet3)
 
 
 #Inspect the rules produced by the algorithm and 1023 are the number of non redundant rules
-inspect(head(ruleSet3, 11804))
+inspect(head(ruleSet3, 6523))
 
 #Write the rules of analysis into a csv file
 write(ruleSet3, file = "Analysis3.csv")
