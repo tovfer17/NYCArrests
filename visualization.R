@@ -20,8 +20,6 @@ itemFrequencyPlot(items(ruleSet3),topN=29,type="absolute",col=brewer.pal(8,'Past
 top10subrules1 <- head(ruleSet1, n = 10, by = "confidence")
 #Plotting the apriori algorithm results with interactive scatter plot 
 plotly_arules(top10subrules)
-#Plotting the apriori algorithm results with two-key plot 
-plot(top10subrules1, method = "two-key plot", interactive = TRUE)
 #graphvisual
 plot (top10subrules1, method = "graph", engine = "htmlwidget")
 
@@ -31,8 +29,6 @@ plot (top10subrules1, method = "graph", engine = "htmlwidget")
 top10subrules2 <- head(ruleSet2, n = 10, by = "confidence")
 #Plotting the apriori algorithm results with interactive scatter plot 
 plotly_arules(top10subrules2)
-#Plotting the apriori algorithm results with two-key plot 
-plot(top10subrules2, method = "two-key plot", interactive = TRUE)
 #graphvisual
 plot (top10subrules2, method = "graph", engine = "htmlwidget")
 
@@ -42,8 +38,6 @@ plot (top10subrules2, method = "graph", engine = "htmlwidget")
 top10subrules3 <- head(ruleSet3, n = 10, by = "confidence")
 #Plotting the apriori algorithm results with interactive scatter plot 
 plotly_arules(top10subrules3)
-#Plotting the apriori algorithm results with two-key plot 
-plot(top10subrules3, method = "two-key plot", interactive = TRUE)
 #graphvisual
 plot (top10subrules3, method = "graph", engine = "htmlwidget")
 
