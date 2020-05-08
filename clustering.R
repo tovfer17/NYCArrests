@@ -9,7 +9,7 @@ cluster1 <- kmeans(file1[7:8], 4)
 str(cluster1)
 
 #Create a new column to display which cluster each longitude and latitude belongs to
-file1$Borough <- as.factor(cluster1$cluster)
+file1$Direction <- as.factor(cluster1$cluster)
 str(cluster1)
 
 #Display the cluser centers
@@ -26,7 +26,7 @@ cluster2 <- kmeans(file2[7:8], 4)
 str(cluster2)
 
 #Create a new column to display which cluster each longitude and latitude belongs to
-file2$Borough <- as.factor(cluster2$cluster)
+file2$Direction <- as.factor(cluster2$cluster)
 str(cluster2)
 
 #Display the cluser centers
@@ -43,7 +43,7 @@ cluster3 <- kmeans(file3[7:8], 4)
 str(cluster3)
 
 #Create a new column to display which cluster each longitude and latitude belongs to
-file3$Borough <- as.factor(cluster3$cluster)
+file3$Direction <- as.factor(cluster3$cluster)
 str(cluster3)
 
 #Display the cluser centers
@@ -60,7 +60,7 @@ cluster4 <- kmeans(file4[7:8], 4)
 str(cluster4)
 
 #Create a new column to display which cluster each longitude and latitude belongs to
-file4$Borough <- as.factor(cluster4$cluster)
+file4$Direction <- as.factor(cluster4$cluster)
 str(cluster4)
 
 #Display the cluser centers
@@ -77,7 +77,7 @@ cluster5 <- kmeans(file5[7:8], 4)
 str(cluster5)                 
 
 #Create a new column to display which cluster each longitude and latitude belongs to
-file5$Borough <- as.factor(cluster5$cluster)
+file5$Direction<- as.factor(cluster5$cluster)
 str(cluster5)
 
 #Display the cluser centers

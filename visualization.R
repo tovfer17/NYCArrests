@@ -1,38 +1,5 @@
-#---------------------------------------- Set working directory ----------------------------------------#
-setwd('/Users/fer/Documents/RStudioFiles/NYCArrests')
-#setwd('/Users/arpit/Documents/Data Mining Project')
-#setwd('/Users/nehabala/Desktop/Data Mining Project')
-#--------------------------------- Install Packages & Load Libraries ----------------------------------#
-#Install the packages needed for association rule mining
-install.packages("arulesViz")
-install.packages("arules")
-#Load the required packages for association rule mining
+#Visuals File 5
 library(arulesViz)
-library(arules)
-
-#---------------------------------Graphs for Association Rules ---------------------------------#
-# Filter rules with confidence greater than 0.4 or 40%
-subRules<-association.rules[quality(association.rules)$confidence>0.4]
-#Plot SubRules
-plot(subRules)
-
-
-#Plotting the apriori algorithm results
-plot(ruleSet1)
-plot(ruleSet1,method="Graph")
-plot(ruleSet1, method = "two-key plot")
-head(quality(ruleSet1))
-
-#Matrix Visuals        
-subrules <- removeRedundant[quality(removeRedundant)$confidence > 0.4]
-subrules
-plot(subrules, method = "matrix", measure = "confidence", interactive = TRUE)
-
-#Grouped Visuals
-subrules2 <- head(ruleSet1, n = 235, by = "confidence")
-subrules2
-plot(subrules2, method = "grouped", interactive = TRUE)
-
 #---------------------------------- Bar Graph for Association Rules -----------------------------------#
 #Bar Grap Visuals
 if (!require("RColorBrewer")) {
@@ -48,3 +15,43 @@ itemFrequencyPlot(items(ruleSet2),topN=29,type="absolute",col=brewer.pal(8,'Past
 itemFrequencyPlot(items(ruleSet3),topN=29,type="absolute",col=brewer.pal(8,'Pastel2'), main="Absolute Item Frequency Plot")
 
 
+#--------------------------------- Other Graphs for Association Rules ---------------------------------#
+#Plotting the apriori algorithm results
+plot(ruleSet1, interactive = TRUE)
+plot(ruleSet1, method = "two-key plot", interactive = TRUE)
+head(quality(ruleSet1))
+
+#New Graph
+top10subrules <- head(ruleSet1, n = 10, by = "confidence")
+plot (top10subrules, method = "graph", engine = "htmlwidget")
+
+plot(top10subrules, interactive = TRUE)
+
+
+
+
+
+
+
+#Matrix Visuals        
+subrules <- ruleSet1[quality(ruleSet1)$confidence > 0.4]
+subrules
+plot(subrules, method = "matrix", measure = "confidence", interactive = TRUE)
+
+
+
+#Grouped Visuals
+subrules2 <- head(ruleSet1, n = 10, by = "confidence")
+subrules2
+plot(subrules2, method = "grouped", interactive = TRUE)
+
+
+
+install.packages("ggmap")
+library(ggmap)
+
+?register_google
+
+NYCMap <- get_map("Bronx", zoom = 10)
+ggmap(NYCMap) + geom_point(aes(x = Longitude[], y = Latitude[], colour = as.factor(cluster1$centers)),data = file1) +
+  ggtitle("Bronx using KMean")
