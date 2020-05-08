@@ -20,7 +20,7 @@ preprocessed$PERP_RACE <- as.factor(preprocessed$PERP_RACE)
 preprocessed$Latitude <- as.factor(preprocessed$Latitude)
 preprocessed$Longitude <- as.factor(preprocessed$Longitude)
 preprocessed$Month <- as.factor(preprocessed$Month)
-preprocessed$Borough <- as.factor(preprocessed$Borough)
+preprocessed$Direction <- as.factor(preprocessed$Direction)
 
 #Output the duplicate data with the changed datatypes
 str(preprocessed)

@@ -9,21 +9,19 @@ install.packages("arulesViz")
 library(arules)
 library(arulesViz)
 
-#---------------------------------- Apriori Algorithm for Analysis1 -----------------------------------#
+#help for apriori
 ?apriori
 
 #Display all outputs
 options(max.print = .Machine$integer.max)
+
+#---------------------------------- Apriori Algorithm for Analysis1 -----------------------------------#
 
 #Run the apriori algorithm for first analysis
 ruleSet1 <- apriori(preprocessed, parameter = list(support = 0.01, confidence = 0.4))
 #Get the performance summary and number of rules (We originally have 712 Rules)
 summary(ruleSet1)
 
-#Remove Redundant Rules
-#analysis1 <- ruleSet1[!is.redundant(ruleSet1)]
-#Get the performance summary and number non redundant rules (We now have 235 Rules)
-#summary(analysis1)
 
 #Inspect the rules produced by the algorithm and 235 are the number of non redundant rules
 inspect(head(ruleSet1, 1306))
@@ -32,20 +30,12 @@ inspect(head(ruleSet1, 1306))
 write(ruleSet1, file = "Analysis1.csv")
 
 #---------------------------------- Apriori Algorithm for Analysis2 -----------------------------------#
-?apriori
-
-#Display all outputs
-options(max.print = .Machine$integer.max)
 
 #Run the apriori algorithm for first analysis
 ruleSet2 <- apriori(preprocessed, parameter = list(support = 0.001, confidence = 0.3, target = "rules"))
 #Get the performance summary and number of rules (We originally have 8833 Rules)
 summary(ruleSet2)
 
-#Remove Redundant Rules
-#analysis2 <- ruleSet2[!is.redundant(ruleSet2)]
-#Get the performance summary and number non redundant rules (We now have 2824 Rules)
-#summary(analysis2)
 
 #Inspect the rules produced by the algorithm and 2824 are the number of non redundant rules
 inspect(head(ruleSet2, 2824))
@@ -54,20 +44,12 @@ inspect(head(ruleSet2, 2824))
 write(ruleSet2, file = "Analysis2.csv")
 
 #---------------------------------- Apriori Algorithm for Analysis3 -----------------------------------#
-?apriori
-
-#Display all outputs
-options(max.print = .Machine$integer.max)
 
 #Run the apriori algorithm for first analysis
 ruleSet3 <- apriori(preprocessed, parameter = list(support = 0.002, confidence = 0.5, target = "rules"))
 #Get the performance summary and number of rules (We originally have 3082 Rules)
 summary(ruleSet3)
 
-#Remove Redundant Rules
-#analysis3 <- ruleSet3[!is.redundant(ruleSet3)]
-#Get the performance summary and number non redundant rules (We now have 1023 Rules)
-#summary(analysis3)
 
 #Inspect the rules produced by the algorithm and 1023 are the number of non redundant rules
 inspect(head(ruleSet3, 1023))

@@ -1,9 +1,9 @@
 #Preprocessing File 1
 
 #---------------------------------------- Set working directory ----------------------------------------#
-#setwd('/Users/fer/Documents/RStudioFiles')
+setwd('/Users/fer/Documents/RStudioFiles/NYCArrests')
 #setwd('/Users/arpit/Documents/Data Mining Project')
-setwd('/Users/nehabala/Desktop/Data Mining Project')
+#setwd('/Users/nehabala/Desktop/Data Mining Project')
 
 #------------------------------- Read Original Dataset & Select Columns --------------------------------#
 #Read and call arrest data
