@@ -17,8 +17,6 @@ preprocessed$ARREST_BORO <- as.factor(preprocessed$ARREST_BORO)
 preprocessed$AGE_GROUP <- as.factor(preprocessed$AGE_GROUP)
 preprocessed$PERP_SEX <- as.factor(preprocessed$PERP_SEX)
 preprocessed$PERP_RACE <- as.factor(preprocessed$PERP_RACE)
-preprocessed$Latitude <- as.factor(preprocessed$Latitude)
-preprocessed$Longitude <- as.factor(preprocessed$Longitude)
 preprocessed$Month <- as.factor(preprocessed$Month)
 preprocessed$Direction <- as.factor(preprocessed$Direction)
 

@@ -94,8 +94,10 @@ clustering <- bind_rows(file1, file2, file3, file4, file5)
 View(clustering)
 
 #Select the columns to output into the new clustering file
-clusteredData <- clustering[c(2,3,4,5,6,7,8,9,10)]
+clusteredData <- clustering[c(2,3,4,5,6,9,10)]
 View (clusteredData)
+
+
 
 #Output the file with all the data combined into one file
 write.csv(clusteredData, file = "clustering.csv")
