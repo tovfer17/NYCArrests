@@ -24,7 +24,7 @@ summary(ruleSet1)
 
 
 #Inspect the rules produced by the algorithm and 235 are the number of non redundant rules
-inspect(head(ruleSet1, 1306))
+inspect(head(ruleSet1, 1302))
 
 #Write the rules of analysis into a csv file
 write(ruleSet1, file = "Analysis1.csv")
@@ -38,7 +38,7 @@ summary(ruleSet2)
 
 
 #Inspect the rules produced by the algorithm and 2824 are the number of non redundant rules
-inspect(head(ruleSet2, 2824))
+inspect(head(ruleSet2, 41412))
 
 #Write the rules of analysis into a csv file
 write(ruleSet2, file = "Analysis2.csv")
@@ -52,7 +52,7 @@ summary(ruleSet3)
 
 
 #Inspect the rules produced by the algorithm and 1023 are the number of non redundant rules
-inspect(head(ruleSet3, 1023))
+inspect(head(ruleSet3, 11804))
 
 #Write the rules of analysis into a csv file
 write(ruleSet3, file = "Analysis3.csv")
