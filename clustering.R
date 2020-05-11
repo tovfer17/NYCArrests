@@ -1,5 +1,5 @@
 #Preprocessing File 2
-
+        
 #--------------------------------------- Clustering for Bronx  ----------------------------------------#
 #Read the file with the data for Bronx
 file1 <- read.csv("1.csv",header=TRUE)
