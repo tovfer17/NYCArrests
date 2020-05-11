@@ -2,7 +2,7 @@
 
 #------------------------------- Preprocessing by Converting Datatypes --------------------------------#
 #Read the file with all the clustered data
-clusterFile <- read.csv("clustering.csv",header=TRUE)
+clusterFile <- read.csv("clustering.csv",header=TRUE)    
 View(clusterFile)
 
 #Create a variable to duplicate the data for preprocessing
