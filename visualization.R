@@ -7,7 +7,7 @@ if (!require("RColorBrewer")) {
   install.packages("RColorBrewer")
   #Load the required package RColorBrewer
   library(RColorBrewer)
-}
+}      
 
 #Output the graph for each analysis
 itemFrequencyPlot(items(ruleSet1),topN=29,type="absolute",col=brewer.pal(8,'Pastel2'), main="Absolute Item Freq Ruleset1")
