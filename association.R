@@ -36,7 +36,7 @@ ruleSet2 <- apriori(preprocessed, parameter = list(support = 0.001, confidence =
 #Get the performance summary and number of rules (We originally have 8833 Rules)
 summary(ruleSet2)
 
-
+      
 #Inspect the rules produced by the algorithm and 2824 are the number of non redundant rules
 inspect(head(ruleSet2, 22530 ))
 
